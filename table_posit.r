@@ -138,6 +138,9 @@ pharma_gt <- gridify(
 
 pharma_gt
 
+# retrieve raw grid code which can be reevaluated
+raw_grid_code <- print(pharma_gt)
+
 pharma_gt |>
   export_to("polkas_table_contest_2025.png", width = 3000, height = 2600, res = 300)
 
