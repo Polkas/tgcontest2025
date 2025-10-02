@@ -18,23 +18,6 @@ library(scales)
 primary_color   <- "#08306b"
 secondary_color <- "#6baed6"
 
-# Parameters you can edit centrally
-company_name      <- "Acme Biotherapeutics"
-project_code      <- "ABC123"
-indication        <- "Moderate to Severe Condition X"
-study_id          <- "Study ABC123-45"
-population_desc   <- "Safety Analysis Set"
-protocol_version  <- "Protocol ABC123 v3.0"
-sap_version       <- "SAP v1.2"
-data_cutoff       <- as.Date("2025-09-01")
-document_status   <- "DRAFT v0.9"
-output_id         <- "T14-01.01"
-program_name      <- "bmrkr1_region_summary.R"
-watermark_text    <- "DRAFT"   # Set "" (empty string) for final outputs
-analysis_biomarker <- "BMRKR1"
-
-run_time_utc <- format(Sys.time(), "%Y-%m-%d %H:%M %Z")
-
 # Data Preparation
 
 adsl <- random.cdisc.data::cadsl |>
@@ -71,8 +54,18 @@ gt_tbl <- summary_tbl |>
     N = "n",
     BMRKR1 = "BMRKR1"
   ) |>
+  cols_width(
+    ARM ~ pct(30),
+    REGION1 ~ pct(30),
+    N ~ pct(10),
+    BMRKR1 ~ pct(30)
+  ) |>
+  cols_align(
+    align = "center",
+    columns = N
+  ) |>
   tab_options(
-    table.width = pct(90),
+    table.width = pct(70),
     table.font.size = 16,
     data_row.padding = px(6),
     table.font.color = "black",
@@ -124,24 +117,27 @@ pharma_gt <- gridify(
     )
   )
 ) |> 
-  set_cell("header_left_1", "My Company") %>%
-  set_cell("header_left_2", "<PROJECT> / <INDICATION>") %>%
-  set_cell("header_left_3", "<STUDY>") %>%
+  set_cell("header_left_1", "PharmaCorp International") %>%
+  set_cell("header_left_2", "ONCOLOGY / Advanced NSCLC") %>%
+  set_cell("header_left_3", "Study PC-2025-001") %>%
   set_cell("header_right_1", "CONFIDENTIAL") %>%
-  set_cell("header_right_2", "<Draft or Final>") %>%
-  set_cell("header_right_3", "Data Cut-off: YYYY-MM-DD") %>%
-  set_cell("output_num", "<Output> xx.xx.xx") %>%
-  set_cell("title_1", "<Title 1>") %>%
-  set_cell("title_2", "<Title 2>") %>%
-  set_cell("title_3", "<Optional Title 3>") %>%
-  set_cell("by_line", "By: <GROUP>, <optionally: Demographic parameters>") %>%
-  set_cell("note", "<Note or Footnotes>") %>%
-  set_cell("references", "<References:>") %>%
-  set_cell("footer_left", "Program: <PROGRAM NAME>, YYYY-MM-DD at HH:MM") %>%
-  set_cell("footer_right", "Page xx of nn")
+  set_cell("header_right_2", "Final") %>%
+  set_cell("header_right_3", "Data Cut-off: 2025-09-30") %>%
+  set_cell("output_num", "Table 14.1.1") %>%
+  set_cell("title_1", "Summary of Demographics and Baseline Characteristics") %>%
+  set_cell("title_2", "Baseline Biomarker 1 (BMRKR1) by Geographic Region") %>%
+  set_cell("title_3", "Safety Analysis Set") %>%
+  set_cell("note", "Note: BMRKR1 values shown as Mean (SD).") %>%
+  set_cell("references", "Source: ADSL dataset random.cdisc.data") %>%
+  set_cell("footer_left", sprintf("Program: table_posit.R, %s", format(Sys.time(), "%Y-%m-%d %H:%M %Z"))) %>%
+  set_cell("footer_right", "Page 1 of 1")
 
 pharma_gt
 
 pharma_gt |>
-  export_to("outputs/polkas_table_contest_2025.png", width = 3000, height = 2600, res = 300)
+  export_to("polkas_table_contest_2025.png", width = 3000, height = 2600, res = 300)
+
+pharma_gt |>
+  export_to("polkas_table_contest_2025.pdf")
+
 

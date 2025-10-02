@@ -1,26 +1,39 @@
-# 2025 Posit Table & Plotnine Contest Submission
+# 2025 Posit Table Contest Submission
 
 Author: **Maciej Nasinski** ([GitHub: @Polkas](https://github.com/Polkas))
 
 ## Overview
 
-This repo shows how to use R to create submission-ready clinical Tables, Listings, and Graphs (TLGs) with full context—using **gt**/**ggplot2** and **gridify** for consistent layout.  
-All code, synthetic data, and steps are included for reproducibility.  
-Outputs match the expected clinical reporting look, with headers, protocol info, population labels, notes, and footers.
-
-The main idea of this entry is to demonstrate how R can be used to produce submission-quality Tables, Listings, and Graphs (TLGs) for clinical reporting. 
-By combining powerful packages like **gt**/**ggplot2** and **gridify** for layout, we can achieve a consistent, transparent, and fully reproducible presentation that matches regulatory expectations for structure and appearance. 
+This repository provides a reproducible example of generating a submission‑quality clinical Table (TLG style) using **gt** + **gridify** (for regulatory style framing) with synthetic CDISC-like data from `random.cdisc.data`. 
+The focus is solely on the 2025 Posit Table Contest (the previous exploratory plot script has been deprecated and omitted from the submission scope).
 
 ## How to Run
 
-`plot_posit.R` - generate plot for the Contest Submission  
-`table_posit.R` - generate table for the Contest Submission
+`table_posit.R` – generates the contest table and writes the PNG to `outputs/`.
 
-Outputs are in the `outputs` directory.
+Outputs are in the `outputs` directory:
+
+- `polkas_table_contest_2025.png`
 
 ## Data
 
-All data are synthetic, generated via `random.cdisc.data` - no real patient data.
+All data are synthetic (randomly generated but deterministic) via `random.cdisc.data`; no real patient data are used.
+
+## Dependencies (R packages)
+
+- dplyr
+- gt
+- gridify
+- random.cdisc.data
+- scales
+
+(Install as needed; package versions not pinned here—can be captured later with `renv` if desired.)
+
+## Notes
+
+- Layout metadata (titles, headers, footers) are populated dynamically from a parameter block in the script for easy reuse.
+- Biomarker values are displayed as Mean (SD) by treatment arm and region.
+- Colors are applied conservatively to maintain readability.
 
 ## License
 
