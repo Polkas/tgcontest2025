@@ -6,7 +6,11 @@
 # =====================================================================
 # Description
 
-# Clinical reporting sits at the intersection of statistical rigor, regulatory expectation, and reproducible communication. While pharmaverse packages address analysis, a persistent gap remains: consistent contextual framing of tables, listings, and graphs (TLGs). gridify closes that gap. Built on base grid, it lets users declaratively position headers, multi-line titles, population labels, footnotes, and compliance notices around any visual or tabular object. Combined with gt, users retain elegant tabular styling while gaining precise external framing. When a predefined pharma layout is not enough, the user can define custom semantic zones—then preview or iterate rapidly, even inside a Shiny app. The showcased TLG example reflects the type of submission-quality artifact that helps advance investigational products toward patients—delivered with greater speed, clarity, and reproducibility.
+# Clinical reporting sits at the intersection of statistical rigor, regulatory expectation, and reproducible communication. 
+# While pharmaverse packages address analysis, a persistent gap remains: consistent contextual framing of tables, listings, and graphs (TLGs). 
+# gridify closes that gap. Built on base grid, it lets users declaratively position headers, multi-line titles, population labels, footnotes, and compliance notices around any visual or tabular object. 
+# Combined with gt, users retain elegant tabular styling while gaining precise external framing. When a predefined pharma layout is not enough, the user can define custom semantic zones—then preview or iterate rapidly, even inside a Shiny app. 
+# The showcased TLG example reflects the type of submission-quality artifact that helps advance investigational products toward patients—delivered with greater speed, clarity, and reproducibility.
 
 # Setup
 library(dplyr)
