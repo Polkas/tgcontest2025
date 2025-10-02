@@ -2,15 +2,35 @@
 
 Author: **Maciej Nasinski** ([GitHub: @Polkas](https://github.com/Polkas))
 
-## Overview
+## The Problem
 
-This repository provides a reproducible example of generating a submission‑quality clinical Table (TLG style) using **gt** + **gridify** (for regulatory style framing) with synthetic CDISC-like data from `random.cdisc.data`. 
+Clinical reporting requires tables that meet both statistical rigor and regulatory standards.
+While pharmaverse packages handle analysis well, a gap remains in consistent, reproducible framing of Tables, Listings, and Graphs (TLGs) with headers, footers, compliance notices, and metadata required for submissions.
 
-Clinical reporting sits at the intersection of statistical rigor, regulatory expectation, and reproducible communication. 
-While pharmaverse packages address analysis, a persistent gap remains: consistent contextual framing of tables, listings, and graphs (TLGs). 
-gridify closes that gap. Built on base grid, it lets users declaratively position headers, multi-line titles, population labels, footnotes, and compliance notices around any visual or tabular object. 
-Combined with gt, users retain elegant tabular styling while gaining precise external framing. When a predefined pharma layout is not enough, the user can define custom semantic zones—then preview or iterate rapidly, even inside a Shiny app. 
-The showcased TLG example reflects the type of submission-quality artifact that helps advance investigational products toward patients—delivered with greater speed, clarity, and reproducibility.
+## The Solution
+
+This example demonstrates combining **{gt}** for table styling with **{gridify}** for regulatory-compliant framing. 
+{gridify} is built on base {grid} and enables declarative positioning of headers, titles, population labels, footnotes, and compliance notices around any tabular or graphical object.
+
+Key capabilities:
+
+- Predefined pharma layouts matching regulatory expectations
+- Custom layouts when predefined templates aren't sufficient  
+- Pure R workflow from data to final output
+- Rapid iteration and preview
+
+## This Example
+
+A CDISC ADSL baseline characteristics table showing Biomarker 1 (BMRKR1) by treatment arm and geographic region, with:
+
+- Summary statistics: n, Mean (SD) with gradient color encoding
+- Complete regulatory framing: protocol info, data cut-off, confidentiality notices, traceability
+- Data source: Synthetic CDISC data from {random.cdisc.data} (not real patient data)
+
+## Why It Matters
+
+This workflow produces submission-quality artifacts that help advance investigational products toward patients, delivered with greater speed, clarity, and reproducibility. 
+Combined with {gt}'s styling, {gridify} enables pharma statisticians to produce elegant, compliant outputs without sacrificing reproducibility.
 
 ## How to Run
 
