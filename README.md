@@ -16,7 +16,7 @@ The showcased TLG example reflects the type of submission-quality artifact that 
 
 `table_posit.R` – generates the contest table and writes the PNG to `outputs/`.
 
-Outputs are in the `outputs` directory:
+Outputs are:
 
 - `polkas_table_contest_2025.png`
 - `polkas_table_contest_2025.pdf`
