@@ -43,7 +43,7 @@ summary_tbl <- adsl |>
     SD_BMRKR1 = round(SD_BMRKR1, 2)
   ) |>
   mutate(
-    BMRKR1 = factor(sprintf("%0.2f (%0.2f)", MEAN_BMRKR1, SD_BMRKR1), levels = )
+    BMRKR1 = factor(sprintf("%0.2f (%0.2f)", MEAN_BMRKR1, SD_BMRKR1))
   ) |>
   mutate(
     BMRKR1 = factor(BMRKR1, levels = BMRKR1[order(MEAN_BMRKR1)])
