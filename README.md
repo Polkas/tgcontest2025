@@ -26,6 +26,7 @@ A CDISC ADSL baseline characteristics table showing Biomarker 1 (BMRKR1) by trea
 - Summary statistics: n, Mean (SD) with gradient color encoding
 - Complete regulatory framing: protocol info, data cut-off, confidentiality notices, traceability
 - Data source: Synthetic CDISC data from {random.cdisc.data} (not real patient data)
+- The company and drug information are not real too. 
 
 ## Why It Matters
 
